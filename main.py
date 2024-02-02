@@ -23,13 +23,13 @@ def combat(enemy_hp): # fonction pour le combat
     if lance_de <= enemy_hp: # si le de tombe sur un nombre plus petit ou egal que la force de l'adversaire
         print("Vous perdez le combat..")
         hp -= enemy_hp
-        return 0
+        return False
 
     else: # si le nombre est plus grand que la force de l'adversaire
         print("Vous gagnez le combat!")
         hp += force_adversaire
         nbr_victoires += 1
-        return 1
+        return True
 
 
 ################
@@ -59,10 +59,10 @@ while hp > 0: #
     if choix == 1:
         cmbt = combat(force_adversaire) # utilise la fonction combat
 
-        if cmbt == 0: # perdu
+        if cmbt == False: # perdu
             print(f"Votre niveau de vie est maintenant à {hp}")
 
-        elif cmbt == 1: # gagner
+        elif cmbt == True: # gagner
             print(f"Vous avez maintenant {nombre_victoires_consecutives} victoires consécutives!")
             print(f"Votre niveau de vie est maintenant à {hp}")
 
